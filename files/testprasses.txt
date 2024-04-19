@@ -1,0 +1,49 @@
+package lab5;
+
+public class CStack <T extends Comparable<T>> implements StackInterface<T> {
+	CursorArray<T> cursorArray = new CursorArray<>();
+	int list = cursorArray.createList();
+	
+	
+	
+	public CStack() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void push(T data) {
+		if(data !=null)
+		cursorArray.insertAtHead(data, list);
+		
+		
+	}
+
+	@Override
+	public T pop() {
+		return cursorArray.deleteAtHead(list);
+		
+	}
+
+	@Override
+	public T peek() {
+		return cursorArray.getHead(list);
+	}
+
+	@Override
+	public boolean isEmpty() {
+	return	cursorArray.isEmpty(list);
+	}
+
+	@Override
+	public void claer() {
+		cursorArray.removeList(list);
+		this.cursorArray = new CursorArray<>();
+		 this.list = cursorArray.createList();
+		
+	}
+	public void traversStac() {
+		cursorArray.traversList(list);
+	}
+
+}
